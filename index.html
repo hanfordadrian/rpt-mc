@@ -3,9 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Bedwars Purity Test</title>
-  <!-- ✅ Minecraftia font hosted by CDN -->
   <link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet">
-
   <style>
     body {
       font-family: 'Minecraftia', sans-serif;
@@ -62,84 +60,55 @@
   <h1>Bedwars Purity Test</h1>
 
   <form id="purityForm">
-    <div class="question">
-      <input type="checkbox" id="q1">
-      <label for="q1">Bought ladders</label>
-    </div>
-    <div class="question">
-      <input type="checkbox" id="q2">
-      <label for="q2">Bought a punch bow</label>
-    </div>
-    <div class="question">
-      <input type="checkbox" id="q3">
-      <label for="q3">Fireballed your teammate</label>
-    </div>
-    <div class="question">
-      <input type="checkbox" id="q4">
-      <label for="q4">Intentionally not split the gen</label>
-    </div>
-    <div class="question">
-      <input type="checkbox" id="q5">
-      <label for="q5">Bridged to first rush without crouching</label>
-    </div>
-    <div class="question">
-      <input type="checkbox" id="q6">
-      <label for="q6">Made a bed defense with more than 2 layers of obsidian</label>
-    </div>
-    <div class="question">
-      <input type="checkbox" id="q7">
-      <label for="q7">Stolen more than 3 finals in one game</label>
-    </div>
-    <div class="question">
-      <input type="checkbox" id="q8">
-      <label for="q8">Broken obby with your fist</label>
-    </div>
-    <div class="question">
-      <input type="checkbox" id="q9">
-      <label for="q9">Trapped someone in a nether portal</label>
-    </div>
-    <div class="question">
-      <input type="checkbox" id="q10">
-      <label for="q10">Gotten a perfect game</label>
-    </div>
-    <div class="question">
-      <input type="checkbox" id="q11">
-      <label for="q11">Gotten a 100 kill game</label>
-    </div>
-    <div class="question">
-      <input type="checkbox" id="q12">
-      <label for="q12">Dated someone you met in lobby 1</label>
-    </div>
-    <div class="question">
-      <input type="checkbox" id="q13">
-      <label for="q13">Final killed a YouTube rank</label>
-    </div>
-
-    <!-- 🔧 ADD MORE QUESTIONS HERE -->
-    <!-- Copy-paste this block to add more:
-    <div class="question">
-      <input type="checkbox" id="q14">
-      <label for="q14">[New Question Text Here]</label>
-    </div>
-    -->
+    <div id="questionsContainer"></div>
 
     <button type="submit">Submit</button>
     <div id="score"></div>
   </form>
 
   <script>
+    const questions = [
+      "Bought ladders",
+      "Bought a punch bow",
+      "Fireballed your teammate",
+      "Intentionally not split the gen",
+      "Bridged to first rush without crouching",
+      "Made a bed defense with more than 2 layers of obsidian",
+      "Stolen more than 3 finals in one game",
+      "Broken obby with your fist",
+      "Trapped someone in a nether portal",
+      "Gotten a perfect game",
+      "Gotten a 100 kill game",
+      "Dated someone you met in lobby 1",
+      "Final killed a YouTube rank",
+      "Watered all three teams in 4s",
+      "Sniped somebody",
+      "Intentionally spleefed teammate",
+      "Blocked in with obsidian",
+      "Drank magic milk just to feel something"
+    ];
+
+    const container = document.getElementById("questionsContainer");
+
+    questions.forEach((question, index) => {
+      const div = document.createElement("div");
+      div.className = "question";
+      div.innerHTML = `
+        <input type="checkbox" id="q${index + 1}">
+        <label for="q${index + 1}">${question}</label>
+      `;
+      container.appendChild(div);
+    });
+
     document.getElementById("purityForm").addEventListener("submit", function(e) {
       e.preventDefault();
       const checkboxes = document.querySelectorAll("input[type='checkbox']");
-      let total = checkboxes.length;
-      let checked = 0;
-
-      checkboxes.forEach(cb => {
-        if (cb.checked) checked++;
-      });
-
+      const total = checkboxes.length;
+      const checked = Array.from(checkboxes).filter(cb => cb.checked).length;
       const purityScore = total - checked;
-      document.getElementById("score").innerHTML = `Your Bedwars Purity Score: <strong>${purityScore}</strong> / ${total}`;
+
+      document.getElementById("score").innerHTML = 
+        `Your Bedwars Purity Score: <strong>${purityScore}</strong> / ${total}`;
     });
   </script>
 
