@@ -2,9 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
- <div id="title">
-  <img src="https://i.imgur.com/2i8Ou0s.png" alt="Bedwars Purity Test Title" />
-</div>
+  <title>Bedwars Purity Test</title>
   <link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet">
   <style>
     body {
@@ -16,7 +14,8 @@
       text-shadow: 1px 1px 2px black;
       padding: 20px;
     }
-  #title {
+
+    #title {
       text-align: center;
       margin-bottom: 30px;
     }
@@ -26,21 +25,15 @@
       height: auto;
       image-rendering: pixelated;
     }
-    h1 {
+
+    h1, h2, h3 {
       text-align: center;
-      font-size: 2.5em;
       margin-bottom: 30px;
     }
-    h2 {
-      text-align: center;
-      font-size: 1.5em;
-      margin-bottom: 30px;
-    }
-    h3 {
-      text-align: center;
-      font-size: 1.0em;
-      margin-bottom: 30px;
-    }
+
+    h1 { font-size: 2.5em; }
+    h2 { font-size: 1.5em; }
+    h3 { font-size: 1em; }
 
     form {
       max-width: 800px;
@@ -48,6 +41,10 @@
       background-color: rgba(0, 0, 0, 0.7);
       padding: 20px;
       border-radius: 10px;
+    }
+
+    ol {
+      padding-left: 20px;
     }
 
     .question {
@@ -78,12 +75,15 @@
 </head>
 <body>
 
+  <div id="title">
+    <img src="https://i.imgur.com/2i8Ou0s.png" alt="Bedwars Purity Test Title" />
+  </div>
+
   <h3>Caution: This is not a bucket list. Completion of all items in this test will likely result in death.</h3>
   <h2>Have you ever:</h2>
 
   <form id="purityForm">
-    <div id="questionsContainer"></div>
-
+    <ol id="questionsContainer"></ol>
     <button type="submit">Submit</button>
     <div id="score"></div>
   </form>
@@ -170,7 +170,7 @@
       "Played Bedwars at a funeral",
       "Final killed a YouTube rank",
       "Pulled an all nighter playing Bedwars",
-      "Skipped school/work to play bedwars",
+      "Skipped school/work to play Bedwars",
       "Had a dream about Bedwars",
       "Posted your Bedwars hypixel wrapped online",
       "Recorded and uploaded Bedwars content",
@@ -183,19 +183,19 @@
       "Been catfished by an egirl skin",
       "Dated someone you met in Lobby 1",
       "Cheated on your partner with someone you met in 4s",
-      "Touched grass",
+      "Touched grass"
     ];
 
     const container = document.getElementById("questionsContainer");
 
     questions.forEach((question, index) => {
-      const div = document.createElement("div");
-      div.className = "question";
-      div.innerHTML = `
+      const li = document.createElement("li");
+      li.className = "question";
+      li.innerHTML = `
         <input type="checkbox" id="q${index + 1}">
         <label for="q${index + 1}">${question}</label>
       `;
-      container.appendChild(div);
+      container.appendChild(li);
     });
 
     document.getElementById("purityForm").addEventListener("submit", function(e) {
@@ -205,7 +205,7 @@
       const checked = Array.from(checkboxes).filter(cb => cb.checked).length;
       const purityScore = total - checked;
 
-      document.getElementById("score").innerHTML = 
+      document.getElementById("score").innerHTML =
         `Your Bedwars Purity Score: <strong>${purityScore}</strong> / ${total}`;
     });
   </script>
