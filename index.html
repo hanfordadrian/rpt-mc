@@ -15,13 +15,16 @@
       padding: 20px;
     }
 
-    #title {
+    .centered {
       text-align: center;
-      margin-bottom: 30px;
+    }
+
+    .header-box {
       background-color: rgba(0, 0, 0, 0.7);
-      padding: 10px;
+      padding: 10px 20px;
       border-radius: 10px;
       display: inline-block;
+      margin-bottom: 30px;
     }
 
     #title img {
@@ -40,7 +43,7 @@
     h3 { font-size: 1em; }
 
     form ol {
-    padding-left: 40px; /* Adds spacing from the left border */
+      padding-left: 40px;
     }
 
     form {
@@ -83,16 +86,30 @@
 </head>
 <body>
 
-  <div id="title">
-    <img src="https://i.imgur.com/QlWEoYf.png" alt="Bedwars Purity Test Title" />
+  <!-- Title image -->
+  <div class="centered">
+    <div class="header-box">
+      <img src="https://i.imgur.com/QlWEoYf.png" alt="Bedwars Purity Test Title" />
+    </div>
   </div>
 
-  <h3 style="text-align: center;">
-  <img src="https://i.imgur.com/OMuKrPa.png" alt="Minecraft face" style="vertical-align: middle; width: 30px; height: 30px; margin-right: 4px;">
-  Caution: This is not a bucket list. Completion of all items in this test will likely result in death.
-</h3>
+  <!-- Caution line -->
+  <div class="centered">
+    <div class="header-box">
+      <h3 style="margin: 0;">
+        <img src="https://i.imgur.com/OMuKrPa.png" alt="Minecraft face"
+             style="vertical-align: middle; width: 30px; height: 30px; margin-right: 4px;">
+        Caution: This is not a bucket list. Completion of all items in this test will likely result in death.
+      </h3>
+    </div>
+  </div>
 
-  <h2><u>Have you ever:</u></h2>
+  <!-- Section title -->
+  <div class="centered">
+    <div class="header-box">
+      <h2 style="margin: 0;"><u>Have you ever:</u></h2>
+    </div>
+  </div>
 
   <form id="purityForm">
     <ol id="questionsContainer"></ol>
@@ -102,103 +119,54 @@
 
   <script>
     const questions = [
-      "Reached 100+ stars",
-      "Reached 300+ stars",
-      "Reached 5+ FKDR",
-      "Reached 10+ FKDR",
-      "Gotten a 20+ winstreak",
-      "Gotten a 100+ winstreak",
-      "Finished the slumber hotel questline",
-      "Bought ladders",
-      "Bought a punch bow",
-      "Bought 10+ golems",
-      "Bought an iron sword with your first seven gold",
-      "Bought a bow with your first 12 gold",
-      "Waited in the gen for iron armor before doing anything",
-      "Won with clean leather armor",
-      "Forgot to start quests after playing 10+ games",
-      "Misclicked diamond upgrade for forge",
-      "Missed a pearl clutch",
-      "Intentionally fireballed a teammate",
-      "Intentionally spleefed a teammate",
-      "Intentionally not split the gen",
-      "Stolen more than 3 finals in one game",
-      "Camped at base with punch bow until dragons",
-      "Switched to dreams because you couldn't win normal mode",
-      "Thrown a fireball at the shopkeeper",
-      "Thrown a pearl at the shopkeeper",
-      "Lost a game in less than 30 seconds",
-      "Lost two games in a row to the same hacker",
-      "Bridged to first rush without crouching",
-      "Failed a bridge after placing one block",
-      "Walked off more than 10 times in a single game",
-      "Targetted a team with all players disconnected",
-      "Used 2+ bridge eggs to combo opponent",
-      "Built ranked bridge in a normal game",
-      "Clutched a castle game",
-      "Had 3+ beds (in Lucky Block)",
+      "Reached 100+ stars", "Reached 300+ stars", "Reached 5+ FKDR", "Reached 10+ FKDR",
+      "Gotten a 20+ winstreak", "Gotten a 100+ winstreak", "Finished the slumber hotel questline",
+      "Bought ladders", "Bought a punch bow", "Bought 10+ golems",
+      "Bought an iron sword with your first seven gold", "Bought a bow with your first 12 gold",
+      "Waited in the gen for iron armor before doing anything", "Won with clean leather armor",
+      "Forgot to start quests after playing 10+ games", "Misclicked diamond upgrade for forge",
+      "Missed a pearl clutch", "Intentionally fireballed a teammate", "Intentionally spleefed a teammate",
+      "Intentionally not split the gen", "Stolen more than 3 finals in one game",
+      "Camped at base with punch bow until dragons", "Switched to dreams because you couldn't win normal mode",
+      "Thrown a fireball at the shopkeeper", "Thrown a pearl at the shopkeeper",
+      "Lost a game in less than 30 seconds", "Lost two games in a row to the same hacker",
+      "Bridged to first rush without crouching", "Failed a bridge after placing one block",
+      "Walked off more than 10 times in a single game", "Targetted a team with all players disconnected",
+      "Used 2+ bridge eggs to combo opponent", "Built ranked bridge in a normal game",
+      "Clutched a castle game", "Had 3+ beds (in Lucky Block)",
       "Tricked an opponent into thinking that you were their teammate",
       "Became the bed defense by camping inside and waiting",
-      "Became the bed defense inside of an obsidian defense",
-      "Blocked in with a pop up tower",
-      "Blocked in with obsidian",
-      "Gotten trapped in obsidian",
-      "Built an obsidian cock",
-      "Made a bed defense with more than 2 layers of obsidian",
-      "Broken obsidian with a wooden pickaxe",
-      "Broken obsidian with your fist",
-      "Trapped someone in a nether portal",
-      "Watered all three teams in 4s",
-      "Sniped a team on a winstreak",
-      "Bought 3 counter offensive traps at once",
-      "Bought molten forge before any prot",
-      "Triple clutched",
-      "Been final killed from botched fireball jump",
-      "Gotten a final kill with a fireball but without kill credit",
-      "Successfully double TNT jumped",
-      "Nuke a base with 5+ TNT",
-      "Made it to the 4 half beds at the bottom of the map",
+      "Became the bed defense inside of an obsidian defense", "Blocked in with a pop up tower",
+      "Blocked in with obsidian", "Gotten trapped in obsidian", "Built an obsidian cock",
+      "Made a bed defense with more than 2 layers of obsidian", "Broken obsidian with a wooden pickaxe",
+      "Broken obsidian with your fist", "Trapped someone in a nether portal",
+      "Watered all three teams in 4s", "Sniped a team on a winstreak",
+      "Bought 3 counter offensive traps at once", "Bought molten forge before any prot",
+      "Triple clutched", "Been final killed from botched fireball jump",
+      "Gotten a final kill with a fireball but without kill credit", "Successfully double TNT jumped",
+      "Nuke a base with 5+ TNT", "Made it to the 4 half beds at the bottom of the map",
       "Beaten a team in 3s so badly that they partied you for 4s",
       "Beaten someone so badly they add you as a friend to play with later",
-      "Clutched a fall by placing a block and then a ladder",
-      "Won a game on trackpad",
-      "Won a game without using a sword",
-      "Won a game using someone else's atrocious keybinds",
-      "Ended up fully carrying a Lobby 1 party",
-      "Final killed a YouTube rank",
-      "Gotten a perfect game",
-      "Broken all 3 beds in 4s",
-      "Broken all 7 beds in solos",
-      "Gotten a perfect solo game",
-      "? (kills in one game)",
-      "Gotten a 100 kill game",
-      "Fallen for a party invite that warped you out as a final kill",
-      "Drank magic milk just to drink it",
-      "Targeted white team due to personal preferences",
-      "Randomly played against someone from your friends list",
-      "Met someone on Bedwars who goes to your school/work",
-      "Met someone originally from Bedwars in real life",
+      "Clutched a fall by placing a block and then a ladder", "Won a game on trackpad",
+      "Won a game without using a sword", "Won a game using someone else's atrocious keybinds",
+      "Ended up fully carrying a Lobby 1 party", "Final killed a YouTube rank",
+      "Gotten a perfect game", "Broken all 3 beds in 4s", "Broken all 7 beds in solos",
+      "Gotten a perfect solo game", "? (kills in one game)", "Gotten a 100 kill game",
+      "Fallen for a party invite that warped you out as a final kill", "Drank magic milk just to drink it",
+      "Targeted white team due to personal preferences", "Randomly played against someone from your friends list",
+      "Met someone on Bedwars who goes to your school/work", "Met someone originally from Bedwars in real life",
       "Had to leave a game to do something in real life",
       "Mistakenly used Bedwars slang in non-bedwars context (e.g. obby)",
-      "Played Bedwars at school/work",
-      "Played Bedwars at a gaming cafe",
-      "Played Bedwars at a wedding",
-      "Played Bedwars at a funeral",
-      "Pulled an all nighter playing Bedwars",
-      "Skipped school/work to play Bedwars",
-      "Skipped meals for a day to keep playing Bedwars",
-      "Had a dream about Bedwars",
-      "Posted your Bedwars hypixel wrapped online",
-      "Recorded and uploaded Bedwars content",
-      "Dodged a game using a stats tracker",
-      "Successfully closet cheated (e.g. autoclicker)",
-      "Sold/Purchased an account",
-      "Went to the hospital for a bedwars-related injury",
-      "Added 20+ discords from Lobby 1",
-      "Went looking for an edate in Lobby 1",
+      "Played Bedwars at school/work", "Played Bedwars at a gaming cafe",
+      "Played Bedwars at a wedding", "Played Bedwars at a funeral",
+      "Pulled an all nighter playing Bedwars", "Skipped school/work to play Bedwars",
+      "Skipped meals for a day to keep playing Bedwars", "Had a dream about Bedwars",
+      "Posted your Bedwars hypixel wrapped online", "Recorded and uploaded Bedwars content",
+      "Dodged a game using a stats tracker", "Successfully closet cheated (e.g. autoclicker)",
+      "Sold/Purchased an account", "Went to the hospital for a bedwars-related injury",
+      "Added 20+ discords from Lobby 1", "Went looking for an edate in Lobby 1",
       "Convincingly used a voice changer to catfish a Lobby 1 party",
-      "Been catfished by an egirl skin",
-      "Dated someone irl that you originally met in Lobby 1",
+      "Been catfished by an egirl skin", "Dated someone irl that you originally met in Lobby 1",
       "Had a bedwars-related fight with your irl partner",
       "Cheated on your irl partner with someone you met in 4s",
       "Touched grass"
